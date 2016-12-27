@@ -1,0 +1,637 @@
+body {
+    margin: 0 auto;
+    background: var(--dark-background-color);
+    color: var(--dark-text-color);
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+*{
+    font-family: /*Helvetica, "Nimbus Sans L", */Robotto, Arial, sans-serif;
+    transition: all .5s cubic-bezier(.45,.05,.55,.95);
+}
+/* **********************************************
+* **********************************************
+*
+* Generic elements
+*
+*
+* **********************************************
+* **********************************************
+*/
+a{
+    color: var(--accent-color);
+}
+a:visited{
+    color: var(--accent-color);
+}
+svg {
+    fill: var(--icon-color);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border-width: 100px;
+}
+svg:hover{
+    fill: var(--icon-color-hover);
+    background-color: white;
+    border-radius: 50%;
+    transform: scale(1.25);
+}
+button{
+    font-family: inherit;
+    font-weight: bold;
+}
+h1, h2, b{
+    color: --var(--text-color-strong);
+}
+/*
+ * Row with vertically centered content
+ */
+.align-center{
+    display: flex;
+    align-items: center;
+}
+/* **********************************************
+* **********************************************
+*
+* Icons
+*
+*
+* **********************************************
+* **********************************************
+*/
+img.icon, svg.icon{
+    vertical-align: sub;
+    width: 24px;
+    height: 24px;
+}
+img.icon.tinted, svg.icon.tinted path{
+    fill: var(--accent-color);
+}
+.icon.dry path{
+    fill: var(--light-text-color);
+}
+.icon.dry.button{
+    width: 32px;
+    height: 32px;
+    margin: 0 3px;
+}
+
+.icon.social{
+    width: 36px;
+    height: 36px;
+    border-width: 3px;
+    border-style: solid;
+    /*background-color: white;*/
+    /*border-color: white;*/
+    border: none;
+    border-radius: 50%;
+}
+.icon.social path{
+    fill: white;
+    /*var(--primary-color);*/
+}
+.icon.social:hover path{
+    fill:black;
+}
+.icon.heart path{
+    fill: red;
+}
+
+/* **********************************************
+* **********************************************
+*
+* HEADER specific styling
+*
+*
+* **********************************************
+* **********************************************
+*/
+header{
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+    width: 100%;
+    height: 62px; /*42 + 2 * 12 */
+    background-color: rgba(0, 0, 0, .4);
+}
+header #nav-drawer-open-button{
+    height: 42px;
+    width: 42px;
+    margin-top: 12px;
+    margin-left: 12px;
+    margin-bottom: 12px;
+}
+/* **********************************************
+* **********************************************
+*
+* Nav bar specific styling
+*
+*
+* **********************************************
+* **********************************************
+*/
+nav{
+    font-size: 1.2em;
+    position: fixed;
+    top: 0px;
+    left: calc(75% * -1);
+    width: 75%;
+    background-color: white;
+    height: 100%;
+    z-index: 10000000000000000000000000000;
+}
+div#opened-drawer-content{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 20000000000000000000;
+    background-color: rgba(0,0,0,.5);
+}
+nav a{
+    text-decoration: none;
+    color: var(--light-text-color);
+    border-style: none;
+    border-color: transparent;
+    text-transform: capitalize;
+    background-color: transparent;
+    text-align: center;;
+    font-size: 1.1em;
+    font-weight: normal;
+    padding: 2px 0px 2px 0px;
+    min-width: 96px;
+    width: 100%;
+    display: inline-block;
+}
+nav a:visited{
+    color: var(--light-text-color);
+    text-decoration: none;
+}
+nav a:hover{
+    background-color: var(--icon-color-hover);
+    color: white;
+}
+nav a.current{
+    color: var(--icon-color-hover);
+    font-weight: bold;
+    border-bottom: solid 3px var(--icon-color-hover);
+}
+nav a.current:hover{
+    color: var(--light-text-color);
+}
+
+/* **********************************************
+* **********************************************
+*
+* Divs that take the viewport's width
+*
+*
+* **********************************************
+* **********************************************
+*/
+div.full{
+    min-height: 100vh;
+}
+
+div.full.first{
+    /*height: var(--full-minus-nav-bar-height);
+    margin-top: var(--nav-bar-height);*/
+    /*Same but the first on the page, content should be centered vertically*/
+
+    /*Turns out it's not needed*/
+}
+
+/* **********************************************
+* **********************************************
+*
+* Cards and their children
+*
+*
+* **********************************************
+* **********************************************
+*/
+div.card{
+    background-color: var(--card-background-color);
+    color: var(--light-text-color);
+    width: calc(100% - 2 * 16px);
+    border-radius: 2px;
+    /*Mobile first!! TODO: change this for larger devices*/
+    margin: 0 auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+div.card.bigger.margintop
+div.card h1, div.card h2, div.card.h3, div.card.h4, div.card.h5,
+div.card.h6, div.card b, div.card strong {
+    color: var(--light-text-color-strong);
+}
+
+div.card-child{
+    margin-left: 16px;
+    margin-right: 18px;
+}
+
+/* ********************
+* The bottom row of a card (buttons!)
+* ********************
+*/
+div.card .hidden{
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    opacity: 0;
+    transition: height .5s, opacity .5s, width 0s, display .5s;
+}
+/* ********************
+* The bottom row of a card (buttons!)
+* ********************
+*/
+div.card div.button_row{
+    width: calc(100% - 2 * 8px);
+    margin: 8px;
+    height: 36px;
+}
+
+div.card div.button_row button,
+div.card div.button_row input[type=submit],
+div.card div.button_row input[type=reset]{
+    height: 36px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    font-weight: 700;
+    min-width: 96px;
+    border: none;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+div.card div.button_row .flat{
+    background: none;
+    border: none;
+    color: var(--light-text-color);
+}
+
+div.card div.button_row .flat:hover{
+    background: rgba(0, 0, 0, 0.4);
+}
+
+div.card div.button_row .right{
+    float: right;
+    margin-left: 0px; /*This is overriden by the vanilla style, wtf*/
+    margin-right: 0px;
+}
+
+div.card div.button_row .raised{
+    background: var(--primary-color);
+    color: white;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.2s;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+div.card div.button_row .raised.accent{
+    background: var(--accent-color);
+}
+
+div.card div.button_row .raised:hover{
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.2s;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.26);
+}
+
+/* **********************************************
+* **********************************************
+*
+* Card containers
+*
+*
+* **********************************************
+* **********************************************
+*/
+div.container{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    /*padding-top: 70px;
+    padding-bottom: 70px;*/
+}
+div.container.full{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    min-height: calc(100vh - 2 *70px);
+}
+/* **********************************************
+* **********************************************
+*
+* Footer
+*
+*
+* **********************************************
+* **********************************************
+*/
+footer{
+    width: 100%;
+    padding-bottom: 10px;
+}
+footer a{
+    color: var(--nav-bar-link-color);
+}
+footer a:visited{
+    color: var(--nav-bar-link-color);
+}
+footer div{
+    width: 100%;
+    text-align: center;
+    color: var(--nav-bar-text-color);
+    text-align: center;
+}
+
+
+/* **********************************************
+* **********************************************
+*
+* Stuff in the about-me card
+*
+*
+* **********************************************
+* **********************************************
+*/
+/* ********************
+* Avatar
+* ********************
+*/
+img#face{
+    border-radius: 50%;
+    width: 100px;
+    display: block;
+    margin: auto;
+    margin-top: 8px;
+}
+/* ********************
+* Hey there... block
+* ********************
+*/
+.card_title{
+    font-size: 1.3em;
+    line-height: 2;
+    text-align: center;
+    font-weight: 300;
+    color: black;
+}
+.card_title.colored{
+    color: var(--accent-color);
+}
+.card_title.left{
+    text-align: left;
+}
+.card_title.colored_bg{
+    background-color: var(--primary-color);
+    color: white;
+}
+.card_title.colored_bg svg{
+    width: 48px;
+    height: 48px;
+}
+.card_title.colored_bg svg path{
+    fill: white;
+}
+div#about {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-between;; /*Mobile first here! TODO*/
+}
+div#about .about-item{
+    min-width: 80%; /*Mobile first! TODO*/
+}
+/************************
+ * Skills thingy
+ ************************
+ */
+ #skills_container{
+     display: flex;
+     flex-flow: row wrap;
+ }
+.skill-wrapper{
+    width: 100%;
+    border: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    transition: height .5s, opacity .5s, width 0s, display .5s;
+}
+.skill-wrapper .skill-rating{
+    float: right;
+    display: inline-block;
+    vertical-align: baseline;
+    margin-right: 20px;
+}
+.skill-wrapper .skill-rating .fill{
+    fill: var(--accent-color);
+}
+.skill-wrapper.grid-item{
+    display: block;
+    border: 1px solid #C4C4C4;
+    text-align: center;
+    width: calc(50% - 2px);
+    transition: height .5s, opacity .5s, width 0s, display .5s;
+}
+.skill-wrapper .skill-description{
+    width: 100%;
+    border-top: 1px solid #C2C2C2;
+    padding: 0px 8px;
+    text-align: left;
+}
+.skill-wrapper .skill-icon{
+    margin: 16px 0;
+    font-size: 3em;
+    display: block;
+    min-width: 50%;
+}
+/* **********************************************
+* **********************************************
+*
+* Contact me
+*
+*
+* **********************************************
+* **********************************************
+*/
+.textbox{
+    width: calc(100% - 60px);
+    margin-left: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+    margin-bottom: 10px;
+    height: 2em;
+    outline: none;
+}
+textarea.textbox{
+    resize: vertical;
+    height: 5em;
+}
+.textbox:focus{
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/**
+* The screen is already a little big, navigation drawer can be replaced by
+* a top navigation bar
+*/
+@media screen and (min-width: 480px) and (min-height: 400px){
+    header{
+        display: none;
+    }
+    header #nav-drawer-open-button{
+        display: none;
+    }
+    /* **********************************************
+    * **********************************************
+    *
+    * Nav bar specific styling
+    *
+    *
+    * **********************************************
+    * **********************************************
+    */
+    nav {
+        font-size: 1.2em;
+        position: fixed;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        background-color: transparent;
+        text-align: right;
+        height: auto;
+        z-index: 100000000;
+        transition: height 0s;
+        transition: background-color 700ms linear;
+    }
+
+    nav.invisible{
+        display: none;
+    }
+
+    /* ********************
+    * Nav bar's buttons specific styling
+    * ********************
+    */
+    nav a{
+        text-decoration: none;
+        width: auto;
+        padding: 2px 6px 2px 6px;
+    }
+    nav a:visited{
+        color: var(--nav-bar-text-color);
+    }
+    nav a{
+        border-color: transparent;
+        position: relative;
+        border-style: solid;
+        color: var(--nav-bar-text-color);
+        border-width: var(--button-border-width);
+        background-color: transparent;
+        width: auto;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        font-size: .7em;
+        min-width: 96px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    nav a:hover{
+        border-color: var(--icon-color-hover);
+        color: white;
+    }
+
+    /* ********************
+    * Nav bar's buttons specific styling (THE CURRENT ONE)
+    * ********************
+    */
+    nav a.current{
+        border-left: none;
+        border-right: none;
+        color: white;
+    }
+
+    nav a.current::after{
+        content: '';
+        left: 0px;
+        position: absolute;
+        height: 3px;
+        bottom: -3px;
+        width: 100%;
+        background-color: var(--icon-color-hover);
+    }
+}
+
+/**
+* Screen's starting to became large! The footer can be split in 3 columns
+* and the hey there card can be thiner
+*/
+@media screen and (min-width: 640px){
+    /* **********************************************
+    * **********************************************
+    *
+    * Footer
+    *
+    *
+    * **********************************************
+    * **********************************************
+    */
+    footer{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: .8em;
+    }
+    footer div{
+        width: 30%;
+        color: var(--nav-bar-text-color);
+    }
+
+    footer div#left{
+        text-align: left;
+        margin-left: 16px;
+        order: 0;
+    }
+
+    footer div#right{
+        text-align: right;
+        order: 2;
+        margin-right: 16px;
+    }
+
+    footer div#center{
+        margin: auto;
+        flex-grow: 2;
+        order: 1;
+
+    }
+
+
+    div.card{
+        width: 66%;
+    }
+}
+
+@media screen and (min-width: 700px){
+    div.card{
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    div.card{
+        width: 33%;
+    }
+}
