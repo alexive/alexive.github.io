@@ -1,1 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter|Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Oxygen');
+
 /* You can add global styles to this file, and also import other style files */
+$font-text: 'Oxygen', 'Source Sans Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-titles: 'Bitter', serif;
+
+/**
+  * Some colours I've liked
+  */
+$licorice: #1F0812;
+$dark-slate-gray: #37515F;
+$eucalyptus: #49d49d;
+$sunset-orange: #FF595E;
+$ruby: #d81159;
+$aero: #6bbaec;
+
+
+/**
+ *The greys:
+ */
+$darkest-grey: $licorice;
+$dark-grey: darken($dark-slate-gray, 10%);
+$grey: $dark-slate-gray;
+$light-grey: #888888;
+
+/**
+ * The actual colors i'll use
+ */
+$color-primary: $sunset-orange;
+$color-secondary: $eucalyptus;
+$color-tertiary: $aero;
+
+@mixin custom-gradient($color-from, $color-to, $angle: 45deg){
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,ffffff+100 */
+  background: $color-from; /* Old browsers */
+  background: -moz-linear-gradient($angle, $color-from 0%, $color-to 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient($angle, $color-from 0%, $color-to 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient($angle, $color-from 0%, $color-to 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  border: none;
+}
+
+@mixin main-colors-stripe{
+  $angle: 90deg;
+  background: $color-primary;
+  background: -moz-linear-gradient($angle, $color-secondary 0 33%, $color-primary 33% 66%, $color-tertiary 33% 100%);
+  background: -webkit-linear-gradient($angle, $color-secondary 0 33%, $color-primary 33% 66%, $color-tertiary 33% 100%);
+  background: linear-gradient($angle, $color-secondary 0 33%, $color-primary 33% 66%, $color-tertiary 33% 100%);
+}
+
+@mixin transitions-base {
+  transition: all 0.2s ease-out;
+}
+
+html {
+  font-family: $font-text;
+  color: $grey;
+
+  body{
+    margin: 0 0;
+  }
+}
+.shadow-light{
+  -webkit-box-shadow: 0 5px 5px 1px rgba(0,0,0,0.33);
+  -moz-box-shadow: 0 5px 5px 1px rgba(0,0,0,0.33);
+  box-shadow: 0 5px 5px 1px rgba(0,0,0,0.33);
+}
+.overlay-container{
+  position: relative;
+}
+
+.overlay{
+}
+
+.overlay-footer{
+  @extend .overlay !optional;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/**
+ *Some basic useful flex-related classes
+ */
+.centered{
+  align-self: center;
+}
+
+.card{
+  @extend .shadow-light;
+  background-color: white;
+  border-radius: 0 0 6px 6px;
+  overflow: hidden; /*So that the image respects the border*/
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $font-titles;
+  text-align: center;
+}
+h1, h2{
+  color: $dark-grey;
+}
+h3, h4, h5, h6{
+  color: $grey;
+}
+
+/*
+ * Styles for buttons
+ */
+button{
+  @include transitions-base;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 4px;
+  min-height: 32px;
+  min-width: 120px;
+  font-weight: 600;
+  color: $dark-grey;
+  text-transform: lowercase;
+
+  &[next]::after{
+    content: '>';
+    margin-left: 7px;
+    font-size: 1.2rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &:hover{
+    border-color: $color-primary;
+  }
+
+  &.primary{
+    background: $color-primary;
+    color: white;
+
+    &:hover{
+      @extend .shadow-light;
+    }
+  }
+
+  &.secondary{
+    //border-color: $color-secondary;
+  }
+
+}
