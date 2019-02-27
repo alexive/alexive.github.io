@@ -1,25 +1,10 @@
-<div id="home-root">
+<div>
 
-  <div class="card centered home">
-    <div id="avatar-container" class="overlay-container">
-      <img id="avatar" src="https://avatars.githubusercontent.com/alexive"/>
-      <section id="section-find-me-on">
-        contact
-      </section>
-    </div>
-    <div id="details" class="overlay-container">
-      <h1>{{ personalData.name }}</h1>
-      <h2>{{ personalData.title }}</h2>
-      <hr/>
-      <h4>Born '96</h4>
-      <h4>Based in Lisbon ML</h4>
-      <section id="section-details-actions">
-        <button class="tertiary">About</button>
-        <button class="secondary">Projects</button>
-        <button class="primary" next>Contact me</button>
-      </section>
-    </div>
+  <div id="business-card-container">
+    <app-business-card [name]='personalData.name' [title]='personalData.title'></app-business-card>
   </div>
-
-
+  <app-nav-bar></app-nav-bar>
+  <div id="about-me-container">
+    <app-about-me-section></app-about-me-section>
+  </div>
 </div>

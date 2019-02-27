@@ -1,0 +1,32 @@
+<div id="container">
+  <div id="skills" style="min-width: 300px;">
+    <h2>I can get my way around these</h2>
+    <ul id="skill-sets">
+      <li *ngFor="let i of skills">
+        <h3>{{i.name}}</h3>
+        <i *ngFor="let s of i.skills" class="devicon-{{s.name | lowercase}}-plain devicon-{{s.name | lowercase}}-plain-wordmark"></i>
+      </li>
+    </ul>
+  </div>
+  <div id="other">
+    <div class="card" id="facts">
+      <h3>Random fact</h3>
+      <hr class="colorful"/>
+      <div id="fact-container">
+        <button class="control" id="previous" (click)="previousFact()" [class.active]="currentFact > 0">
+          <i class="arrow left"></i>
+        </button>
+        <span id="fact">
+          {{facts[currentFact]}}
+        </span>
+        <button class="control" id="next" (click)="nextFact()" [class.active]="hasMoreFacts()">
+          <i class="arrow right"></i>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="card" style="min-width: 300px;"></div>
+    <div class="card" style="min-width: 300px;"></div>
+  </div>
+</div>

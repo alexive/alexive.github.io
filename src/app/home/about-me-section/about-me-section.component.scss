@@ -1,0 +1,148 @@
+@import "../../../styles";
+
+#container{
+  min-height: calc(100vh + #{$nav-height} * 2);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  align-content: space-evenly;
+  justify-content: space-around;
+  justify-content: space-evenly;
+
+  .card{
+    width:  40%;
+    min-width: 300px;
+    height: 120px;
+
+  }
+}
+
+/**
+ * Skills card
+ */
+#skills{
+  color: darken(white, 3%);
+  border-left: $color-secondary 3px solid;
+  border-radius: 6px;
+
+  h2, h3{
+    color: white;
+  }
+
+
+  #skill-sets{
+
+    list-style: none;
+
+    h3 {
+      text-align: left;
+    }
+
+    i {
+      color: white;
+      font-size: 40pt;
+      margin-right: 20px;
+    }
+
+    li{
+      overflow-wrap: break-word;
+      line-height: 2em;
+    }
+  }
+  //background: $licorice;
+  //background: linear-gradient(45deg, lighten($licorice, 10%) 100%, $licorice 100%);
+}
+
+/**
+ * Other stuff container
+ */
+#other{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  align-content: space-evenly;
+  justify-content: space-around;
+  justify-content: space-evenly;
+}
+/**
+ * Facts card
+ */
+#facts{
+  display: flex;
+  flex-direction: column;
+  background: $licorice;
+  min-width: 200px;
+  width: 250px !important;
+  height: 200px !important;
+
+  h3{
+    margin-bottom: 0;
+    color: white;
+    text-align: left;
+    text-transform: lowercase;
+  }
+
+  hr{
+    margin: 0;
+  }
+
+  #fact-container{
+
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+
+    #fact{
+      color: darken(white, 5%);
+      font-style: italic;
+      align-self: center;
+      text-align: center;
+      flex-grow: 1;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .control{
+      min-width: 30px;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      background: darken(white, 45%);
+      align-self: center;
+      opacity: .5%;
+
+      &.active{
+        background: white;
+        opacity: 100%;
+      }
+    }
+  }
+
+}
+
+
+
+
+/**
+ * Arrows on buttons, from https://www.w3schools.com/howto/howto_css_arrows.asp
+ */
+
+i.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+

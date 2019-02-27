@@ -5,6 +5,8 @@
 $font-text: 'Oxygen', 'Source Sans Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-titles: 'Bitter', serif;
 
+$nav-height: 64px;
+
 /**
   * Some colours I've liked
   */
@@ -57,6 +59,7 @@ $color-tertiary: $aero;
 html {
   font-family: $font-text;
   color: $grey;
+  scroll-behavior: smooth;
 
   body{
     margin: 0 0;
@@ -92,7 +95,7 @@ html {
 .card{
   @extend .shadow-light;
   background-color: white;
-  border-radius: 0 0 6px 6px;
+  border-radius: 8px;
   overflow: hidden; /*So that the image respects the border*/
 }
 
@@ -147,4 +150,11 @@ button{
     //border-color: $color-secondary;
   }
 
+}
+
+hr.colorful{
+  @include main-colors-stripe;
+  border: none;
+  border-radius: 4px;
+  height: 3px;
 }
