@@ -4,5 +4,10 @@ export class SkillSet {
 
   name: string;
 
-  skills: Skill[];
+  skills: {
+
+    languages: Skill[],
+
+    frameworks: Skill[];
+  };
 }

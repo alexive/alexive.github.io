@@ -2,13 +2,13 @@
 
 #container{
   min-height: calc(100vh + #{$nav-height} * 2);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: space-around;
-  align-content: space-evenly;
-  justify-content: space-around;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 40% auto;
+  grid-template-rows: .6fr .4fr 1fr;;
+  align-items: start;
+  justify-items: center;
+  place-content: space-around;
+  padding-top: $nav-height;
 
   .card{
     width:  40%;
@@ -21,50 +21,13 @@
 /**
  * Skills card
  */
-#skills{
-  color: darken(white, 3%);
-  border-left: $color-secondary 3px solid;
-  border-radius: 6px;
-
-  h2, h3{
-    color: white;
-  }
-
-
-  #skill-sets{
-
-    list-style: none;
-
-    h3 {
-      text-align: left;
-    }
-
-    i {
-      color: white;
-      font-size: 40pt;
-      margin-right: 20px;
-    }
-
-    li{
-      overflow-wrap: break-word;
-      line-height: 2em;
-    }
-  }
-  //background: $licorice;
-  //background: linear-gradient(45deg, lighten($licorice, 10%) 100%, $licorice 100%);
+#skills-container{
+  justify-self: stretch;
+  align-self: stretch;
+  position: relative;
+  grid-row: 1 / span 3;
 }
 
-/**
- * Other stuff container
- */
-#other{
-  display: flex;
-  flex-direction: column;
-  align-content: space-around;
-  align-content: space-evenly;
-  justify-content: space-around;
-  justify-content: space-evenly;
-}
 /**
  * Facts card
  */

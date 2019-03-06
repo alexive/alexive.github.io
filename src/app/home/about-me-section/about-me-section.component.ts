@@ -10,49 +10,76 @@ export class AboutMeSectionComponent implements OnInit {
 
   skills: SkillSet[] = [
     {
-      name: 'Web Development',
-      skills: [
-        {
-          name: 'HTML5',
-        },
-        {
-          name: 'CSS3'
-        },
-        {
-          name: 'javascript'
-        },
-        {
-          name: 'React'
-        },
-        {
-          name: 'AngularJS'
-        },
-        {
-          name: 'Sass'
-        }
-      ]
+      name: 'Web/Frontend',
+      skills: {
+        languages: [
+          {
+            name: 'HTML5',
+          },
+          {
+            name: 'CSS3'
+          },
+          {
+            name: 'javascript'
+          },
+          {
+            name: 'TypeScript'
+          }
+        ],
+        frameworks: [
+          {
+            name: 'React'
+          },
+          {
+            name: 'Angular'
+          },
+          {
+            name: 'Sass'
+          },
+          {
+            name: 'Bootstrap'
+          },
+          {
+            name: 'jQuery'
+          }
+        ]
+      }
     },
     {
-      name: 'Server/desktop',
-      skills: [
-        {
-          name: 'Java'
-        },
-        {
-          name: 'Python'
-        }
-      ]
+      name: 'Desktop/Backend',
+      skills: {
+        languages: [
+          {
+            name: 'Java'
+          },
+          {
+            name: 'Python'
+          }
+        ],
+        frameworks: [
+          {
+            name: 'SpringBoot'
+          }
+        ]
+      }
     },
     {
       name: 'Mobile',
-      skills: [
-        {
-          name: 'Android'
-        },
-        {
-          name: 'Kotlin'
-        }
-      ]
+      skills: {
+        languages: [
+          {
+            name: 'Java'
+          },
+          {
+            name: 'Kotlin'
+          }
+        ],
+        frameworks: [
+          {
+            name: 'Android'
+          }
+        ]
+      }
     }
   ];
 

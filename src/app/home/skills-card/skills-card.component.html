@@ -1,0 +1,25 @@
+<div class="card">
+  <h3>skills</h3>
+  <hr class="colorful"/>
+  <div class="tab-container">
+    <div class="tab"
+         *ngFor="let skill of skills; index as i"
+         [attr.selected]="selectedTab == i ? true : undefined"
+         (click)="selectedTab = i">
+      {{skill.name}}
+    </div>
+  </div>
+  <div class="tab-content"
+       *ngFor="let skill of skills; index as i"
+       [attr.selected]="selectedTab ==  i ? true : undefined">
+
+    <div class="skill-section">
+      <h4>Languages</h4>
+      <img *ngFor="let s of skill.skills.languages" src="/assets/{{s.name | lowercase}}.svg"/>
+      <h4>Frameworks</h4>
+      <img *ngFor="let s of skill.skills.frameworks" src="/assets/{{s.name | lowercase}}.svg"/>
+      <!-- <i *ngFor="let s of skill.skills" class="devicon-{{s.name | lowercase}}-plain devicon-{{s.name | lowercase}}-plain-wordmark"></i>-->
+    </div>
+
+  </div>
+</div>
