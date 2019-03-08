@@ -65,7 +65,7 @@ html {
     margin: 0 0;
   }
 }
-.shadow-light{
+@mixin shadow-light{
   -webkit-box-shadow: 0 5px 5px 1px rgba(0,0,0,0.33);
   -moz-box-shadow: 0 5px 5px 1px rgba(0,0,0,0.33);
   box-shadow: 0 5px 5px 1px rgba(0,0,0,0.33);
@@ -93,7 +93,7 @@ html {
 }
 
 .card{
-  @extend .shadow-light;
+  @include shadow-light;
   background-color: white;
   border-radius: 8px;
   overflow: hidden; /*So that the image respects the border*/
@@ -142,7 +142,7 @@ button{
     color: white;
 
     &:hover{
-      @extend .shadow-light;
+      @include shadow-light;
     }
   }
 

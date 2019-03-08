@@ -1,18 +1,54 @@
 @import "../../../styles";
+@import "../../../responsive";
+
+#container{
+  margin: 50px;
+
+  @include phone{
+    overflow: visible;
+    flex-direction: column;
+
+    @include small-phone{
+      margin: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}
 #avatar-container{
   @extend .overlay-container;
   display: flex;
   flex-basis: 40%;
 
+  @include phone{
+    margin-top: -25%;
+    justify-content: center;
+  }
+
   #avatar{
     width: 100%;
     height: auto;
-    object-fit: scale-down;
+    object-fit: cover;
+
+    @include phone{
+      position: relative;
+      width: 160px;
+      height: 160px; //hardcode needed for chrome, object-fit is broken...
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      @include shadow-light;
+    }
+
   }
 
   #section-find-me-on{
     @extend .overlay-footer;
     background-color: $licorice;
+    
+    @include phone{
+      display: none;
+    }
   }
 }
 
@@ -34,5 +70,13 @@
     display: flex;
     justify-content: space-between;
     padding: 5px;
+
+    @include phone{
+      position: relative;
+
+      @include small-phone{
+        //flex-direction: column;
+      }
+    }
   }
 }
