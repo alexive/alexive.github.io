@@ -22,12 +22,11 @@
 
   #content{
     display: flex;
+    flex-direction: column-reverse;
     height: 100%;
 
     hr{
-      align-self: end;
-      flex-grow: 1;
-      margin-bottom: 0px;
+      margin: 0;
     }
   }
 }
