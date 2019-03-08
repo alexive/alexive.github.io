@@ -1,0 +1,50 @@
+// Same breakpoints as bootstrap:
+// https://getbootstrap.com/docs/4.3/layout/overview/#responsive-breakpoints
+// Thankfully they still mention media queries in the opposite direction, so
+// no need to 'invert' the default ones
+
+// Extra small devices (portrait phones, less than 576px)
+//@media (max-width: 575.98px) { ... }
+$xs-max-width: 576px;
+
+// Small devices (landscape phones, less than 768px)
+//@media (max-width: 767.98px) { ... }
+$sm-max-width: 768px;
+
+// Medium devices (tablets, less than 992px)
+//@media (max-width: 991.98px) { ... }
+$md-max-width: 992px;
+
+// Large devices (desktops, less than 1200px)
+//@media (max-width: 1199.98px) { ... }
+$lg-max-width: 1200px;
+
+@mixin _mq_($max-width){
+  @media only screen and (max-width: $max-width) {
+    @content
+  }
+}
+
+@mixin small-phone{
+  @include _mq_($xs-max-width){
+    @content
+  }
+}
+
+@mixin phone{
+  @include _mq_($sm-max-width){
+    @content
+  }
+}
+
+@mixin tablet{
+  @include _mq_($md-max-width){
+    @content
+  }
+}
+
+@mixin desktop{
+  @include _mq_($lg-max-width){
+    @content
+  }
+}
