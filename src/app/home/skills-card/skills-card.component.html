@@ -1,5 +1,5 @@
-<div class="card">
-  <h3>skills</h3>
+<div class="card" id="container">
+  <h3>I can do...</h3>
   <hr class="colorful"/>
   <div class="tab-container">
     <div class="tab"
@@ -14,11 +14,21 @@
        [attr.selected]="selectedTab ==  i ? true : undefined">
 
     <div class="skill-section">
-      <h4>Languages</h4>
-      <img *ngFor="let s of skill.skills.languages" src="/assets/{{s.name | lowercase}}.svg"/>
-      <h4>Frameworks</h4>
-      <img *ngFor="let s of skill.skills.frameworks" src="/assets/{{s.name | lowercase}}.svg"/>
-      <!-- <i *ngFor="let s of skill.skills" class="devicon-{{s.name | lowercase}}-plain devicon-{{s.name | lowercase}}-plain-wordmark"></i>-->
+      <span class="skill-description" *ngIf="skill.description">{{skill.description}}</span>
+      <h4 *ngIf="skill.skills.languages">Languages</h4>
+      <div class="card skill-card" *ngFor="let s of skill.skills.languages">
+        <img alt="{{s.name}}" src="/assets/{{s.name | normalizeFileName}}.svg"/>
+        <div>
+          <h5>{{s.name}}</h5>
+        </div>
+      </div>
+      <h4 *ngIf="skill.skills.frameworks">Frameworks</h4>
+      <div class="card skill-card" *ngFor="let s of skill.skills.frameworks">
+        <img alt="{{s.name}}"  src="/assets/{{s.name | normalizeFileName}}.svg"/>
+        <div>
+          <h5>{{s.name}}</h5>
+        </div>
+      </div>
     </div>
 
   </div>

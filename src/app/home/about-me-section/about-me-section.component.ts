@@ -11,6 +11,7 @@ export class AboutMeSectionComponent implements OnInit {
   skills: SkillSet[] = [
     {
       name: 'Web/Frontend',
+      description: 'Design and build websites or web-apps from scratch, making them work on your desktop and phone.',
       skills: {
         languages: [
           {
@@ -47,6 +48,7 @@ export class AboutMeSectionComponent implements OnInit {
     },
     {
       name: 'Desktop/Backend',
+      description: 'Build a backend to support a business need, following the best practices and focusing on security and performance.',
       skills: {
         languages: [
           {
@@ -58,13 +60,14 @@ export class AboutMeSectionComponent implements OnInit {
         ],
         frameworks: [
           {
-            name: 'SpringBoot'
+            name: 'Spring Boot'
           }
         ]
       }
     },
     {
       name: 'Mobile',
+      description: 'Create a native Android application, following the best practices with design, usability and performance in mind.',
       skills: {
         languages: [
           {
